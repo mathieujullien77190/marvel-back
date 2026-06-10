@@ -8,6 +8,7 @@ import {
   isNumber,
   isString,
 } from "./validators";
+import { Favorites } from "types/types";
 
 export type AssertOptionsWidthFieldName = {
   field: string;
@@ -126,4 +127,22 @@ export const assertExist = <T>(value: T, message: string): NonNullable<T> => {
   if (!value) throw new HttpError(message, 400);
 
   return value;
+};
+
+export const assertFavorites = (value: unknown): Favorites => {
+  const fav = value as Favorites;
+
+  if (!isArray(fav.characters) || !isArray(fav.comics))
+    throw new HttpError("invalid format", 400);
+
+  if (
+    fav.characters.filter((item) => isMongoId(item)).length !==
+    fav.characters.length
+  )
+    throw new HttpError("invalid format", 400);
+
+  if (fav.comics.filter((item) => isMongoId(item)).length !== fav.comics.length)
+    throw new HttpError("invalid format", 400);
+
+  return fav;
 };

@@ -56,5 +56,6 @@ export const extractUserPublicData = (
     _id: user._id,
     token: user.token,
     username: user.username,
+    favorites: user.favorites,
   };
 };

@@ -1,12 +1,24 @@
 import { Router } from "express";
 import type { Request } from "express";
-import { JsonResponse, MessageResponse } from "@/types";
+import {
+  CustomRequest,
+  Favorites,
+  JsonResponse,
+  MessageResponse,
+} from "@/types";
 import { HttpError } from "middlewares/error";
 
 import { UserType, User, PublicUserType } from "models/User";
 import { generatePassword } from "helpers/auth";
 import { extractUserPublicData } from "helpers/formatters";
-import { assertString, assertEmail } from "helpers/assertions";
+import {
+  assertString,
+  assertEmail,
+  assertFavorites,
+  assertExist,
+} from "helpers/assertions";
+
+import isAuthenticated from "middlewares/authentication";
 
 const router = Router();
 const basePath = "/user";
@@ -55,7 +67,7 @@ router.post(
 
 // SIGNIN
 router.post(
-  `${basePath}/login`,
+  `${basePath}/signin`,
   async (req: Request, res: JsonResponse<PublicUserType>) => {
     const email = assertEmail(req.body.email);
     const password = assertString(req.body.password, { field: "password" });
@@ -70,6 +82,26 @@ router.post(
 
       res.status(200).json(extractUserPublicData(user));
     } else throw new HttpError("erreur de connexion", 401); //email not valid
+  },
+);
+
+// UPDATE FAVORITES
+router.put(
+  `${basePath}/favorites`,
+  isAuthenticated,
+  async (req: CustomRequest, res: JsonResponse<Favorites>) => {
+    const favorites = assertFavorites(req.body.favorites);
+    const user = assertExist(req.user, "Unauthorized");
+
+    const userBdd = await User.findById(user._id);
+
+    if (!userBdd) throw new HttpError("erreur de connexion", 401);
+
+    userBdd.favorites = favorites;
+
+    await userBdd.save();
+
+    res.status(200).json(userBdd.favorites);
   },
 );
 

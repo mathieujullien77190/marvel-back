@@ -14,3 +14,8 @@ export type CustomRequest = Request & {
 };
 
 export type CustomRequestWithQuery<T> = CustomRequest & { parsedQuery?: T };
+
+export type Favorites = {
+  comics: string[];
+  characters: string[];
+};

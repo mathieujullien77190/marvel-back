@@ -1,7 +1,7 @@
 import axios from "axios";
 
-import { API_KEY_MARVEL, BASE_PATH_MARVEL_API } from "@/constants";
-import { logSuccess } from "helpers/log";
+import { API_KEY_MARVEL, BASE_PATH_MARVEL_API } from "../constants";
+import { logSuccess } from "../helpers/log";
 
 export const api = axios.create({
   baseURL: BASE_PATH_MARVEL_API,

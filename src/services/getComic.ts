@@ -1,4 +1,4 @@
-import { RawComic } from "types/index";
+import { RawComic } from "../types/index";
 import { api } from "./fetch";
 
 export const getComic = (id: string): Promise<RawComic> =>

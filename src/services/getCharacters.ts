@@ -1,4 +1,4 @@
-import { RawCharactersApiResponse } from "types/index";
+import { RawCharactersApiResponse } from "../types/index";
 import { api } from "./fetch";
 
 export const getCharacters = (

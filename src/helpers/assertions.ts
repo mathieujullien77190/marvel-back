@@ -1,4 +1,4 @@
-import { HttpError } from "middlewares/error";
+import { HttpError } from "../middlewares/error";
 import {
   isArray,
   isBoolean,
@@ -8,7 +8,7 @@ import {
   isNumber,
   isString,
 } from "./validators";
-import { Favorites } from "types/types";
+import { Favorites } from "../types";
 
 export type AssertOptionsWidthFieldName = {
   field: string;

@@ -1,9 +1,9 @@
 import type { NextFunction, Response } from "express";
-import { User } from "models/User";
+import { User } from "../models/User";
 import { HttpError } from "./error";
-import { CustomRequest } from "@/types";
-import { assertToken } from "helpers/assertions";
-import { extractUserPublicData } from "helpers/formatters";
+import { CustomRequest } from "../types";
+import { assertToken } from "../helpers/assertions";
+import { extractUserPublicData } from "../helpers/formatters";
 
 const isAuthenticated = async (
   req: CustomRequest,

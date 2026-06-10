@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import { URI_BD } from "@/constants";
-import { logSuccess } from "helpers/log";
+import { URI_BD } from "../constants";
+import { logSuccess } from "../helpers/log";
 
 export const connectDB = async (bdName: string): Promise<void> => {
   try {

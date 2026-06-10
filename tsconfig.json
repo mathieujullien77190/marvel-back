@@ -1,15 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {
-      "models/*": ["src/models/*"],
-      "middlewares/*": ["src/middlewares/*"],
-      "routes/*": ["src/routes/*"],
-      "helpers/*": ["src/helpers/*"],
-      "types/*": ["src/types/*"],
-      "config/*": ["src/config/*"],
-      "@/*": ["src/*"]
-    },
+
     "ignoreDeprecations": "6.0",
 
     "module": "commonJs",

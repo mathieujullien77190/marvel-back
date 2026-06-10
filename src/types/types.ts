@@ -1,6 +1,6 @@
 import { Response, Request } from "express";
 import { Types } from "mongoose";
-import { PublicUserType } from "models/User";
+import { PublicUserType } from "../models/User";
 
 export type JsonResponse<T> = Response<T>;
 export type MessageResponse = { message: string };

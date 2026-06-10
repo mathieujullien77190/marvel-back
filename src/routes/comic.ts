@@ -1,14 +1,14 @@
 import { Router } from "express";
 import type { Request } from "express";
-import { ComicResponse, ComicsResponse, JsonResponse } from "types/index";
-import { getComicsWithCharacter, getComics, getComic } from "@/services";
+import { ComicResponse, ComicsResponse, JsonResponse } from "../types/index";
+import { getComicsWithCharacter, getComics, getComic } from "../services";
 import {
   formatComic,
   formatQueryParams,
   RawComicsCharacterToComicsResponse,
-} from "helpers/formatters";
-import { logSuccess } from "helpers/log";
-import { assertMongoId } from "helpers/assertions";
+} from "../helpers/formatters";
+import { logSuccess } from "../helpers/log";
+import { assertMongoId } from "../helpers/assertions";
 
 const router = Router();
 const basePath = "/comic";

@@ -1,4 +1,4 @@
-import { Color } from "@/constants";
+import { Color } from "../constants";
 
 export const logColor = (message: string, color: Color) => {
   console.log(`\x1b[${color}m${message}\x1b[0m`);

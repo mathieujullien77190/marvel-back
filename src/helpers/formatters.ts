@@ -6,9 +6,9 @@ import {
   RawCharacter,
   RawComic,
   RawComicsCharacterApiResponse,
-} from "types/index";
+} from "../types/index";
 import type { Request } from "express";
-import { PublicUserType, UserType } from "models/User";
+import { PublicUserType, UserType } from "../models/User";
 
 export const formatComic = (comic: RawComic): Comic => {
   return {

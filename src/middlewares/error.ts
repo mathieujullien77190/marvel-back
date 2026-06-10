@@ -1,6 +1,6 @@
 import type { Response, Request, NextFunction } from "express";
 
-import { logBasic, logError } from "helpers/log";
+import { logBasic, logError } from "../helpers/log";
 
 /**
  * Custom error class that includes an HTTP status code.

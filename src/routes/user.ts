@@ -5,20 +5,20 @@ import {
   Favorites,
   JsonResponse,
   MessageResponse,
-} from "@/types";
-import { HttpError } from "middlewares/error";
+} from "../types";
+import { HttpError } from "../middlewares/error";
 
-import { UserType, User, PublicUserType } from "models/User";
-import { generatePassword } from "helpers/auth";
-import { extractUserPublicData } from "helpers/formatters";
+import { User, PublicUserType } from "../models/User";
+import { generatePassword } from "../helpers/auth";
+import { extractUserPublicData } from "../helpers/formatters";
 import {
   assertString,
   assertEmail,
   assertFavorites,
   assertExist,
-} from "helpers/assertions";
+} from "../helpers/assertions";
 
-import isAuthenticated from "middlewares/authentication";
+import isAuthenticated from "../middlewares/authentication";
 
 const router = Router();
 const basePath = "/user";

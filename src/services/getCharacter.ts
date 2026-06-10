@@ -1,4 +1,4 @@
-import { RawCharacter } from "types/index";
+import { RawCharacter } from "../types/index";
 import { api } from "./fetch";
 
 export const getCharacter = (id: string): Promise<RawCharacter> =>

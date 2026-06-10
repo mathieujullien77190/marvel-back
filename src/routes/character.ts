@@ -4,11 +4,11 @@ import {
   CharacterResponse,
   CharactersResponse,
   JsonResponse,
-} from "types/index";
-import { getCharacter, getCharacters } from "@/services";
-import { formatCharacter, formatQueryParams } from "helpers/formatters";
-import { logSuccess } from "helpers/log";
-import { assertMongoId } from "helpers/assertions";
+} from "../types/index";
+import { getCharacter, getCharacters } from "../services";
+import { formatCharacter, formatQueryParams } from "../helpers/formatters";
+import { logSuccess } from "../helpers/log";
+import { assertMongoId } from "../helpers/assertions";
 
 const router = Router();
 const basePath = "/character";

@@ -1,11 +1,12 @@
 {
-  "name": "jour3",
+  "name": "marvel-back",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.ts",
+  "main": "dist/server.js",
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register --respawn src/server.ts",
-    "start": "ts-node -r tsconfig-paths/register src/server.ts"
+    "dev": "ts-node-dev --respawn src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +19,6 @@
     "dotenv": "^17.4.2",
     "express": "5.2.1",
     "mongoose": "9.6.1",
-    "tsconfig-paths": "4.2.0",
     "uid2": "1.0.0"
   },
   "devDependencies": {

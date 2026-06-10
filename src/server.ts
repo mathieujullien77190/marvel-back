@@ -8,11 +8,10 @@ import characterRouter from "./routes/character";
 import userRouter from "./routes/user";
 
 import { PORT_SERVER } from "./constants";
-import { logInfo } from "helpers/log";
+import { logInfo } from "./helpers/log";
 
 import errorHandler from "./middlewares/error";
-import { data } from "./data";
-import { connectDB } from "config/db";
+import { connectDB } from "./config/db";
 
 // mongoDb init
 connectDB("marvel");
@@ -21,11 +20,6 @@ connectDB("marvel");
 const app = express();
 app.use(express.json());
 app.use(cors());
-
-app.get("/data", (req, res) => {
-  logInfo("Data sent to client");
-  return res.json(data);
-});
 
 //routes
 app.use(comicRouter, characterRouter, userRouter, defaultRouter);

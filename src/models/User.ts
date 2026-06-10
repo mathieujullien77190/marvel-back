@@ -1,4 +1,4 @@
-import { MongoId } from "@/types";
+import { MongoId } from "../types";
 import { Schema, model, InferSchemaType, Types } from "mongoose";
 
 const schema = new Schema({

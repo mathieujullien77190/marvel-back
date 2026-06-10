@@ -2,7 +2,7 @@ export const PORT_SERVER = process.env.PORT;
 
 export const PORT_BD = 27017;
 // export const URI_BD = `mongodb://localhost:${PORT_BD}`;
-export const URI_BD = `mongodb+srv://mathieujullien77190_db_user:fAODd8iiAurAFBfq@cluster0.pltxp7p.mongodb.net`;
+export const URI_BD = process.env.URI_BD;
 
 export enum Color {
   Black = 33,

@@ -15,7 +15,6 @@ export enum Color {
   White = 37,
 }
 
-export const BASE_PATH_MARVEL_API =
-  "https://lereacteur-marvel-api.herokuapp.com";
+export const API_PATH_MARVEL = process.env.API_PATH_MARVEL;
 
-export const API_KEY_MARVEL = "AUZAhNd4Rrj40COS";
+export const API_KEY_MARVEL = process.env.API_KEY_MARVEL;

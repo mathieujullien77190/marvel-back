@@ -1,10 +1,10 @@
 import axios from "axios";
 
-import { API_KEY_MARVEL, BASE_PATH_MARVEL_API } from "../constants";
+import { API_KEY_MARVEL, API_PATH_MARVEL } from "../constants";
 import { logSuccess } from "../helpers/log";
 
 export const api = axios.create({
-  baseURL: BASE_PATH_MARVEL_API,
+  baseURL: API_PATH_MARVEL!,
 });
 
 api.interceptors.request.use((config) => {

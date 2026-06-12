@@ -17,7 +17,7 @@ export type Character = {
   name: string;
   description: string;
   image: string;
-  comics: string[]; // IDs de comics
+  comics: number; // nombre de comics
 };
 
 export type RawCharactersApiResponse = {

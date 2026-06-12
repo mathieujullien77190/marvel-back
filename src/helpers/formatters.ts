@@ -25,7 +25,7 @@ export const formatCharacter = (character: RawCharacter): Character => {
     name: character.name,
     description: character.description || "",
     image: `${character.thumbnail.path}.${character.thumbnail.extension}`,
-    comics: [...character.comics],
+    comics: character.comics.length,
   };
 };
 

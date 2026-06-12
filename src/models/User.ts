@@ -1,5 +1,5 @@
 import { MongoId } from "../types";
-import { Schema, model, InferSchemaType, Types } from "mongoose";
+import { Schema, model, InferSchemaType } from "mongoose";
 
 const schema = new Schema({
   email: { type: String, required: true },
@@ -9,8 +9,8 @@ const schema = new Schema({
   salt: { type: String, required: true },
   favorites: {
     type: {
-      comics: [{ type: String }],
-      characters: [{ type: String }],
+      comics: [{ type: Schema.Types.Mixed }],
+      characters: [{ type: Schema.Types.Mixed }],
     },
     required: true,
     default: { comics: [], characters: [] },

@@ -105,4 +105,19 @@ router.put(
   },
 );
 
+// GET FAVORITES
+router.get(
+  `${basePath}/favorites`,
+  isAuthenticated,
+  async (req: CustomRequest, res: JsonResponse<Favorites>) => {
+    const user = assertExist(req.user, "Unauthorized");
+
+    const userBdd = await User.findById(user._id);
+
+    if (!userBdd) throw new HttpError("erreur de connexion", 401);
+
+    res.status(200).json(userBdd.favorites);
+  },
+);
+
 export default router;

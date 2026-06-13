@@ -13,6 +13,23 @@ import { assertMongoId } from "../helpers/assertions";
 const router = Router();
 const basePath = "/character";
 
+// const data = queryParams.id
+//       ? { count: 1, limit: 1, results: [await getComic(queryParams.id)] }
+//       : await getComics(queryParams);
+
+//     try {
+//       res.json({
+//         ...data,
+//         results: data.results.map((item) => formatComic(item)),
+//       });
+//     } catch (e) {
+//       res.json({
+//         count: 0,
+//         limit: 0,
+//         results: [],
+//       });
+//     }
+
 // LIST CHARACTERS
 router.get(
   `${basePath}s`,
@@ -20,12 +37,22 @@ router.get(
     const queryParams = formatQueryParams(req.query);
     logSuccess(`BFF url : ${req.url}`);
 
-    const data = await getCharacters(queryParams);
+    const data = queryParams.id
+      ? { count: 1, limit: 1, results: [await getCharacter(queryParams.id)] }
+      : await getCharacters(queryParams);
 
-    res.json({
-      ...data,
-      results: data.results.map((item) => formatCharacter(item)),
-    });
+    try {
+      res.json({
+        ...data,
+        results: data.results.map((item) => formatCharacter(item)),
+      });
+    } catch (e) {
+      res.json({
+        count: 0,
+        limit: 0,
+        results: [],
+      });
+    }
   },
 );
 
